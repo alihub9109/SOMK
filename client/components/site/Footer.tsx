@@ -7,7 +7,6 @@ export default function Footer() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
-    // You can replace this with your newsletter API call (e.g. Resend, ConvertKit, etc.)
     console.log("Subscribed:", email);
     setEmail("");
   };
@@ -63,18 +62,21 @@ export default function Footer() {
             <p className="text-foreground/70">
               Monthly insights on brand, motion, and product.
             </p>
-            <form onSubmit={handleSubmit} className="flex gap-2">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-2 w-full"
+            >
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@brand.com"
-                className="flex-1 rounded-full border border-foreground/10 bg-background/70 px-4 py-2 text-sm text-foreground placeholder:text-foreground/50 focus:border-foreground/30 focus:ring-2 focus:ring-foreground/10 focus:outline-none transition-all"
+                className="flex-1 rounded-full border border-foreground/10 bg-background/70 px-4 py-2 text-sm text-foreground placeholder:text-foreground/50 focus:border-foreground/30 focus:ring-2 focus:ring-foreground/10 focus:outline-none transition-all w-full"
               />
               <button
                 type="submit"
-                className="rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition-all hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+                className="rounded-full bg-foreground px-6 py-2 text-sm font-medium text-background transition-all hover:scale-[1.03] hover:shadow-lg active:scale-[0.98] sm:w-auto w-full"
               >
                 Join
               </button>
