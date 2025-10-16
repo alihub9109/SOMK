@@ -19,7 +19,7 @@ export function Placeholder({
           </h1>
           <p className="mt-6 text-lg text-foreground/70">
             {children ??
-              "This page is ready to be crafted. Tell me what you want here and I'll design it to the same luxury standard as the homepage."}
+              "This page is under construction."}
           </p>
         </div>
       </section>
