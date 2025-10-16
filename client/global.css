@@ -1,0 +1,146 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Luxury sand/ink palette */
+    --background: 28 38% 96%; /* cream */
+    --foreground: 24 10% 10%; /* ink */
+
+    --card: 28 38% 98%;
+    --card-foreground: 24 10% 10%;
+
+    --popover: 28 38% 98%;
+    --popover-foreground: 24 10% 10%;
+
+    --primary: 18 100% 54%; /* rich orange */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 24 20% 92%;
+    --secondary-foreground: 24 10% 12%;
+
+    --muted: 24 20% 90%;
+    --muted-foreground: 24 6% 35%;
+
+    --accent: 18 95% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 5 85% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 24 15% 86%;
+    --input: 24 15% 86%;
+    --ring: 18 100% 40%;
+
+    --radius: 0.6rem;
+
+    /* Sidebar baseline for components that rely on it */
+    --sidebar-background: 28 38% 96%;
+    --sidebar-foreground: 24 10% 12%;
+    --sidebar-primary: 18 100% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 24 20% 92%;
+    --sidebar-accent-foreground: 24 10% 12%;
+    --sidebar-border: 24 15% 86%;
+    --sidebar-ring: 18 100% 40%;
+  }
+
+  .dark {
+    --background: 24 10% 6%;
+    --foreground: 28 38% 96%;
+
+    --card: 24 10% 8%;
+    --card-foreground: 28 38% 96%;
+
+    --popover: 24 10% 8%;
+    --popover-foreground: 28 38% 96%;
+
+    --primary: 18 100% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 24 10% 12%;
+    --secondary-foreground: 28 38% 96%;
+
+    --muted: 24 9% 16%;
+    --muted-foreground: 28 12% 70%;
+
+    --accent: 18 95% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 5 85% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 24 10% 16%;
+    --input: 24 10% 16%;
+    --ring: 18 100% 50%;
+
+    --sidebar-background: 24 10% 6%;
+    --sidebar-foreground: 28 38% 96%;
+    --sidebar-primary: 18 100% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 24 10% 12%;
+    --sidebar-accent-foreground: 28 38% 96%;
+    --sidebar-border: 24 10% 16%;
+    --sidebar-ring: 18 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family:
+      Inter,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Helvetica,
+      Arial,
+      "Apple Color Emoji",
+      "Segoe UI Emoji";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+/* ✅ Move animations here instead of @theme */
+@layer utilities {
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll var(--animation-duration, 40s)
+      var(--animation-direction, forwards) linear infinite;
+  }
+}
